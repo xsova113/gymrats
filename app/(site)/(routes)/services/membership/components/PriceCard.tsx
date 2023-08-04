@@ -1,7 +1,10 @@
 import React from "react";
 import CardItem from "./CardItem";
+import { checkSubscription } from "@/actions/subscriptions";
 
-const PriceCard = () => {
+const PriceCard = async () => {
+  const isPro = await checkSubscription();
+
   return (
     <div className="flex flex-col xl:mt-72 lg:mt-60 md:mt-40 sm:mt-32 mt-20 transition-all md:px-10 px-4 bg-neutral-950 py-20">
       <h1 className="mx-auto text-3xl font-bold mb-10 uppercase">
@@ -14,6 +17,7 @@ const PriceCard = () => {
           price={0}
           lists={["3 days free trial", "All classes accessible"]}
           type={"month"}
+          isPro={isPro}
         />
         <CardItem
           title={"Monthly Membership"}
@@ -25,6 +29,7 @@ const PriceCard = () => {
             "1 free nutrition consultation",
           ]}
           type={"month"}
+          isPro={isPro}
         />
         <CardItem
           title={"Yearly Membership"}
@@ -37,6 +42,7 @@ const PriceCard = () => {
             "1 free message from RMT",
           ]}
           type={"year"}
+          isPro={isPro}
         />
       </div>
     </div>

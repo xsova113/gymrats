@@ -23,6 +23,7 @@ interface CartItemProps {
   price: number;
   type: "month" | "year";
   lists: string[];
+  isPro?: boolean;
 }
 
 const CardItem = ({
@@ -31,6 +32,7 @@ const CardItem = ({
   price,
   lists,
   type,
+  isPro,
 }: CartItemProps) => {
   const router = useRouter();
   const user = useAuth();
@@ -44,7 +46,7 @@ const CardItem = ({
         price,
         title,
         description,
-        type
+        type,
       });
 
       window.location.href = response.data.url;
@@ -78,7 +80,16 @@ const CardItem = ({
         </ul>
       </CardContent>
       <CardFooter>
-        {user.isSignedIn ? (
+        {isPro && user.isSignedIn && (
+          <Button
+            onClick={joinMembership}
+            className="text-xl w-full bg-red-600 text-white hover:bg-red-600/90"
+            disabled={isLoading}
+          >
+            Manage membership
+          </Button>
+        )}
+        {!isPro && user.isSignedIn && (
           <Button
             onClick={joinMembership}
             className="text-xl w-full bg-red-600 text-white hover:bg-red-600/90"
@@ -86,7 +97,9 @@ const CardItem = ({
           >
             Join Membership
           </Button>
-        ) : (
+        )}
+
+        {!user.isSignedIn && (
           <Button
             onClick={() => router.push("/auth/sign-up")}
             className="text-xl w-full bg-red-600 text-white hover:bg-red-600/90"
