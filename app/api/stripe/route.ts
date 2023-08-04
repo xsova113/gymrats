@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
     // if userSubscription does not exist in prisma then create stripe checkout session for subscription
     const stripeSession = await stripe.checkout.sessions.create({
-      success_url: homeUrl + "/success",
+      success_url: homeUrl + "success",
       cancel_url: homeUrl,
       payment_method_types: ["card"],
       mode: "subscription",
