@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 import LogoLink from "./LogoLink";
 import ClassesDropdown from "./ClassesDropdown";
 import { useRouter } from "next/navigation";
+import AvatarButton from "./AvatarButton";
+import { SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -40,13 +42,13 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "px-8 flex items-center fixed w-full justify-between bg-black/50 z-50 backdrop-blur py-4 transition",
+        "lg:px-10 px-4 flex items-center fixed w-full justify-between bg-black/50 z-50 backdrop-blur py-4 transition",
         show ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <LogoLink />
 
-      <nav className="md:flex gap-2 items-center hidden">
+      <nav className="lg:flex items-center hidden">
         <Link
           href={"/"}
           className={cn(
@@ -77,12 +79,18 @@ const Header = () => {
           About
         </Link>
       </nav>
-      <Button
-        onClick={() => router.push("/services/membership")}
-        className="px-6 hidden md:block transition hover:scale-110"
-      >
-        Join Now
-      </Button>
+
+      <div className="flex items-center mr-2 space-x-4 max-lg:ml-auto">
+        <UserButton afterSignOutUrl="/" signInUrl="/" />
+
+        <Button
+          onClick={() => router.push("/services/membership")}
+          className="max-lg:hidden text-red-600 uppercase font-semibold transition hover:scale-110"
+        >
+          Join Now
+        </Button>
+      </div>
+
       <MobileNavbar />
     </header>
   );

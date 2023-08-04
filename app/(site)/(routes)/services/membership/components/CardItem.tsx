@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -13,6 +13,9 @@ import { Check } from "lucide-react";
 import { formatter } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
+import { useToast } from "@/components/ui/use-toast";
+import axios from "axios";
 
 interface CartItemProps {
   title: string;
@@ -30,6 +33,28 @@ const CardItem = ({
   type,
 }: CartItemProps) => {
   const router = useRouter();
+  const user = useAuth();
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const joinMembership = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post("/api/stripe", {
+        price,
+        title,
+        description,
+        type
+      });
+
+      window.location.href = response.data.url;
+    } catch (error: any) {
+      toast({ title: error.message, variant: "destructive" });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Card className="min-h-full flex flex-col flex-1">
       <CardHeader>
@@ -37,8 +62,8 @@ const CardItem = ({
         <h3 className="py-2">
           <span className="text-red-600 text-lg font-bold">
             {formatter.format(price)}
-          </span>{" "}
-          / {type}
+          </span>
+          &nbsp; / {type}
         </h3>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
@@ -53,9 +78,23 @@ const CardItem = ({
         </ul>
       </CardContent>
       <CardFooter>
-        <Button className="text-xl w-full bg-red-600 text-white hover:bg-red-600/90">
-          Sign up today
-        </Button>
+        {user.isSignedIn ? (
+          <Button
+            onClick={joinMembership}
+            className="text-xl w-full bg-red-600 text-white hover:bg-red-600/90"
+            disabled={isLoading}
+          >
+            Join Membership
+          </Button>
+        ) : (
+          <Button
+            onClick={() => router.push("/auth/sign-up")}
+            className="text-xl w-full bg-red-600 text-white hover:bg-red-600/90"
+            disabled={isLoading}
+          >
+            Sign up today
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

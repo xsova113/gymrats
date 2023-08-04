@@ -18,7 +18,7 @@ const AboutPage = () => {
       <HowWeStarted />
       <OurMission />
       <Gallery />
-      <div className="flex flex-col gap-y-8 text-center">
+      <div className="flex flex-col gap-y-8 text-center mt-14">
         <h1 className="uppercase md:text-4xl text-3xl font-bold">
           Ready to join?
         </h1>

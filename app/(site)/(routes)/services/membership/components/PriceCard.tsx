@@ -29,14 +29,14 @@ const PriceCard = () => {
         <CardItem
           title={"Yearly Membership"}
           description={"Yearly memberhip with as little as $8 bi-weekly"}
-          price={16}
+          price={194.99}
           lists={[
             "All classes accessible",
             "1 free fitness assessment per month",
             "1 free nutrition consultation per month",
-            "1 free message from RMT"
+            "1 free message from RMT",
           ]}
-          type={"month"}
+          type={"year"}
         />
       </div>
     </div>

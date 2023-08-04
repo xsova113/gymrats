@@ -1,6 +1,6 @@
 "use client";
 
-import { classesRoutes, navItem, servicesItems } from "@/app/(site)/contants";
+import { classesRoutes, navItem, servicesItems } from "@/app/(site)/constants";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Accordion,
@@ -11,16 +11,17 @@ import {
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <Sheet open={isOpen} onOpenChange={() => setIsOpen((prev) => !prev)}>
         <SheetTrigger>
           <Menu />
@@ -34,7 +35,7 @@ const MobileNavbar = () => {
                     <AccordionItem value="item-1" className="border-none">
                       <AccordionTrigger
                         className={cn(
-                          "hover:border-none hover:no-underline hover:bg-stone-100 rounded-full px-4 py-2 hover:text-stone-900",
+                          "hover:border-none hover:no-underline capitalize hover:bg-stone-100 rounded-full px-4 py-2 hover:text-stone-900",
                           pathname.includes(item.label) &&
                             "bg-stone-100 text-stone-900"
                         )}
@@ -47,9 +48,9 @@ const MobileNavbar = () => {
                             classesRoutes.map((item) => (
                               <Link
                                 key={item.href}
-                                href={item.href}
+                                href={"/" + item.href}
                                 onClick={() => setIsOpen(false)}
-                                className="hover:bg-neutral-800 w-full p-2 rounded-full transition"
+                                className="hover:bg-neutral-800 capitalize w-full p-2 rounded-full transition"
                               >
                                 {item.label}
                               </Link>
@@ -60,7 +61,7 @@ const MobileNavbar = () => {
                                 key={item.href}
                                 href={item.href}
                                 onClick={() => setIsOpen(false)}
-                                className="hover:bg-neutral-800 w-full rounded-full p-2 transition"
+                                className="hover:bg-neutral-800 capitalize w-full rounded-full p-2 transition"
                               >
                                 {item.label}
                               </Link>
@@ -74,7 +75,7 @@ const MobileNavbar = () => {
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "capitalize w-full py-2 px-4 rounded-full hover:text-black hover:bg-neutral-100 transition",
+                      "capitalize py-2 rounded-full flex px-3 hover:text-black hover:bg-neutral-100 transition",
                       pathname === item.href && "text-black bg-neutral-100"
                     )}
                   >
@@ -84,7 +85,13 @@ const MobileNavbar = () => {
               </div>
             ))}
           </div>
-          <Button className="mt-20 bg-red-600 hover:bg-red-600/90 text-white text-lg uppercase">
+          <Button
+            onClick={() => {
+              router.push("/services/membership");
+              setIsOpen(false);
+            }}
+            className="mt-20 bg-red-600 hover:bg-red-600/90 text-white text-lg uppercase"
+          >
             Join Now
           </Button>
         </SheetContent>

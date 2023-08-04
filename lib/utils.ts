@@ -9,3 +9,7 @@ export const formatter = new Intl.NumberFormat("en-CA", {
   style: "currency",
   currency: "CAD",
 });
+
+export function absoluteUrl(path: string) {
+  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;
+}

@@ -31,7 +31,7 @@ const AmenityCard = ({ title, description, icon: Icon }: AmenityCardProps) => {
         </CardContent>
         <CardFooter>
           <Button
-            onClick={() => router.push("/membership")}
+            onClick={() => router.push("/services/membership")}
             className="w-full bg-red-600 hover:bg-red-600/90 text-stone-100 uppercase"
           >
             Start Today

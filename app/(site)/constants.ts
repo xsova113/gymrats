@@ -6,10 +6,14 @@ export const servicesItems = [
   {
     label: "membership",
     href: "/services/membership",
-  }
+  },
 ];
 
 export const classesRoutes = [
+  {
+    label: "all classes",
+    href: "classes",
+  },
   {
     label: "circuit",
     href: "classes/circuit",
@@ -22,7 +26,7 @@ export const classesRoutes = [
     label: "yoga",
     href: "classes/yoga",
   },
-]
+];
 
 export const navItem = [
   {
@@ -43,6 +47,6 @@ export const navItem = [
   },
   {
     label: "about",
-    href: "/about"
-  }
+    href: "/about",
+  },
 ];
