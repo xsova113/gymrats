@@ -1,5 +1,4 @@
 import Heading from "@/components/Heading";
-import React from "react";
 import PtBios from "./components/PtBios";
 import BookAssessment from "./components/BookAssessment";
 
@@ -13,8 +12,19 @@ const PersonalTrainingPage = () => {
         }
         video="/images/ptvid.mp4"
       />
-      <BookAssessment />
-      <PtBios />
+      <div className="relative max-sm:bottom-28">
+        <BookAssessment
+          title={"Book a free session"}
+          description={
+            "Ready to kickstart your fitness journey with expert guidance? Don't miss your chance to claim a complimentary personal training session. Our certified trainers are here to tailor a workout plan just for you, helping you reach your goals faster and more effectively."
+          }
+          linkLabel={"Book Session"}
+          image={"/images/ptimage.png"}
+        />
+        <div className="relative max-sm:bottom-14">
+          <PtBios />
+        </div>
+      </div>
     </section>
   );
 };

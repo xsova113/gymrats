@@ -1,11 +1,21 @@
+import { Dumbbell, Group, Utensils } from "lucide-react";
+
 export const servicesItems = [
-  {
-    label: "personal training",
-    href: "/services/personaltraining",
-  },
   {
     label: "membership",
     href: "/services/membership",
+    icon: Group
+  },
+  {
+    label: "personal training",
+    href: "/services/personaltraining",
+    icon: Dumbbell
+  },
+
+  {
+    label: "nutrition",
+    href: "/services/nutrition",
+    icon: Utensils
   },
 ];
 

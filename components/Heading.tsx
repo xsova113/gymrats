@@ -38,7 +38,7 @@ const Heading = ({ title, image, description, video }: HeadingProps) => {
         )}
       </Parallax>
       <div className="flex flex-col gap-y-8 items-center pt-10 sm:pt-20 md:pt-52">
-        <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold uppercase">
+        <h1 className="lg:text-5xl md:text-4xl text-2xl font-bold uppercase">
           {title}
         </h1>
         <p className="text-stone-200 md:text-xl sm:text-lg text-base w-2/3 capitalize text-center">

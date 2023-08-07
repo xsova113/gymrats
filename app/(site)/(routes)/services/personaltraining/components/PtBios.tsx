@@ -48,23 +48,21 @@ const PtBios = () => {
                       src={item.image}
                       alt={item.name}
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-t-lg"
                     />
                   </div>
                   <span className="px-6">{item.name}</span>
                 </CardTitle>
                 <CardDescription className="flex flex-col pt-4 pb-8 px-6">
                   <span className="text-red-600">{item.title}</span>
-                  <div className="flex pt-2 p-0">
+                  <span className="flex pt-2 p-0">
                     {item.qualifications.map((item) => (
                       <span key={item}>{item}&nbsp;</span>
                     ))}
-                  </div>
+                  </span>
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <p>{item.bio}</p>
-              </CardContent>
+              <CardContent>{item.bio}</CardContent>
             </Card>
           ))}
         </div>

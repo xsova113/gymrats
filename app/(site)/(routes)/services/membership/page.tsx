@@ -7,7 +7,7 @@ const MembershipPage = () => {
       <Heading
         title={"Join membership"}
         description={
-          "Unlock a world of fitness, wellness, and community by becoming a member of our gym family. With our all-inclusive membership, you'll enjoy unlimited access to cutting-edge facilities, expert guidance, invigorating group classes, and a supportive community of like-minded individuals."
+          "Unlock a world of fitness, wellness, and community by becoming a member of our GYMRATS family."
         }
         video="/images/membership.mp4"
       />

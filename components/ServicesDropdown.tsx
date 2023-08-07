@@ -1,5 +1,6 @@
 "use client";
 
+import { servicesItems } from "@/app/(site)/constants";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,8 +10,6 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Dumbbell, Group } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const ServicesDropdown = () => {
@@ -28,21 +27,18 @@ const ServicesDropdown = () => {
           >
             Services
           </NavigationMenuTrigger>
+
           <NavigationMenuContent className={"p-2 flex flex-col min-w-[200px]"}>
-            <NavigationMenuLink
-              href={"/services/personaltraining"}
-              className="p-2 rounded-md text-sm flex items-center hover:bg-stone-900 gap-x-2 w-full capitalize transition"
-            >
-              <Dumbbell size={17} />
-              Personal Training
-            </NavigationMenuLink>
-            <NavigationMenuLink
-              href={"/services/membership"}
-              className="p-2 rounded-md text-sm flex items-center hover:bg-stone-900 gap-x-2 w-full capitalize transition"
-            >
-              <Group size={17} />
-              Membership
-            </NavigationMenuLink>
+            {servicesItems.map((item) => (
+              <NavigationMenuLink
+                key={item.label}
+                href={item.href}
+                className="p-2 rounded-md text-sm flex items-center hover:bg-stone-900 gap-x-2 w-full capitalize transition"
+              >
+                <item.icon size={17} />
+                {item.label}
+              </NavigationMenuLink>
+            ))}
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
