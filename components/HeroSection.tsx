@@ -17,7 +17,14 @@ const HeroSection = () => {
           src={"/images/gymratgirl.png"}
           alt={"bg-image"}
           fill
-          className="object-cover"
+          className="object-cover sm:block hidden"
+          priority
+        />
+        <Image
+          src={"/images/gymgirl2.png"}
+          alt={"bg-image"}
+          fill
+          className="object-cover block sm:hidden object-bottom"
           priority
         />
       </Parallax>
