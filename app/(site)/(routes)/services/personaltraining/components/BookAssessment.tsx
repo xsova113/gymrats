@@ -10,7 +10,7 @@ const bookAssessment = () => {
           Book a free session
         </h1>
         <div className="flex mt-8 mb-10 w-4/5 text-white/80">
-          Ready to kickstart your fitness journey with expert guidance? Don't
+          Ready to kickstart your fitness journey with expert guidance? Don&apos;t
           miss your chance to claim a complimentary personal training session.
           Our certified trainers are here to tailor a workout plan just for you,
           helping you reach your goals faster and more effectively.
