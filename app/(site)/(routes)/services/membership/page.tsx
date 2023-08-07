@@ -7,7 +7,7 @@ const MembershipPage = () => {
       <Heading
         title={"Join membership"}
         description={
-          "Nisi officia Lorem cupidatat adipisicing consectetur cillum esse sint elit excepteur nulla excepteur laboris ad."
+          "Unlock a world of fitness, wellness, and community by becoming a member of our gym family. With our all-inclusive membership, you'll enjoy unlimited access to cutting-edge facilities, expert guidance, invigorating group classes, and a supportive community of like-minded individuals."
         }
         video="/images/membership.mp4"
       />

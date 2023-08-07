@@ -21,9 +21,11 @@ const JoinSection = () => {
         </span>
         <Separator className="mt-2" />
         <p className="mt-8 leading-loose">
-          Aliquip quis qui ex consequat quis enim et velit non duis ea. Officia
-          eiusmod ad officia labore nulla esse. Ex irure enim qui magna
-          exercitation aliqua elit Lorem ut ea nostrud.
+          Unlock the door to a healthier, happier you with our Monthly Gym
+          Membership. Designed to provide you with unlimited access to our
+          state-of-the-art facilities, expert guidance, and a vibrant community,
+          this membership is your key to achieving your fitness goals and
+          embracing a holistic approach to well-being.
         </p>
         <Button
           onClick={() => router.push("/membership")}

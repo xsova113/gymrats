@@ -11,7 +11,7 @@ const AboutPage = () => {
       <Heading
         title={"About Us"}
         description={
-          "Culpa pariatur qui velit qui amet nisi aliquip sunt consectetur eu anim sint. Cillum aute anim est proident eu sunt tempor ut cupidatat enim enim ut irure est. Incididunt sunt aliquip occaecat aliquip commodo dolor."
+          "At GYMRATS, we're more than just a gym, we're a community dedicated to transforming lives. With state-of-the-art facilities, expert trainers, and a supportive environment, we empower individuals of all fitness levels to achieve their goals and embrace a healthier lifestyle."
         }
         image="/images/aboutimg.png"
       />

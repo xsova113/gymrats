@@ -9,11 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { User } from "lucide-react";
 import { Parallax } from "react-scroll-parallax";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const PtBios = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <>
       <Parallax
@@ -33,19 +41,25 @@ const PtBios = () => {
               key={item.name}
               className="flex flex-col justify-between bg-neutral-950/60"
             >
-              <CardHeader>
-                <CardTitle className="flex items-center gap-x-2">
-                  <div className="h-10 w-10 rounded-full flex items-center justify-center bg-gray-300">
-                    <User />
+              <CardHeader className="p-0">
+                <CardTitle className="flex flex-col gap-4">
+                  <div className="relative aspect-[16/14]">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  {item.name}
+                  <span className="px-6">{item.name}</span>
                 </CardTitle>
-                <CardDescription className="pt-2">
+                <CardDescription className="flex flex-col pt-4 pb-8 px-6">
                   <span className="text-red-600">{item.title}</span>
-                  <br />
-                  {item.qualifications.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
+                  <div className="flex pt-2 p-0">
+                    {item.qualifications.map((item) => (
+                      <span key={item}>{item}&nbsp;</span>
+                    ))}
+                  </div>
                 </CardDescription>
               </CardHeader>
               <CardContent>

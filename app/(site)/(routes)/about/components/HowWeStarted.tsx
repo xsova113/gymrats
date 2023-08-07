@@ -8,10 +8,12 @@ const HowWeStarted = () => {
           Who we are
         </h1>
         <p className="w-4/5 text-neutral-300">
-          Qui ullamco et officia enim fugiat ut duis deserunt dolore cillum.
-          Ullamco culpa quis dolor ea elit exercitation in ipsum mollit. Cillum
-          in non ea duis enim fugiat Lorem ex est ullamco officia laboris esse.
-          Laboris qui magna ea deserunt proident nisi veniam aute ad.
+          Founded with a vision to redefine fitness, we believe that true health
+          encompasses not only physical strength, but also mental clarity and
+          emotional balance. Our dedicated team of certified trainers and
+          wellness experts is committed to guiding you through this holistic
+          approach, helping you achieve a harmonious blend of vitality,
+          resilience, and confidence.
         </p>
       </div>
       <div className="relative w-full aspect-video flex-1">

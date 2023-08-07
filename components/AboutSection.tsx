@@ -14,12 +14,7 @@ const AboutSection = () => {
             true gymrats know our mission
           </h1>
           <p className="md:w-1/2 w-2/3 self-center my-10 text-stone-200">
-            Consectetur minim eiusmod exercitation cillum aliquip velit aliquip
-            consectetur. Officia laborum veniam exercitation voluptate irure
-            aliquip deserunt magna laboris deserunt eu incididunt qui. Velit
-            pariatur in anim magna proident enim est ad et. Deserunt ea esse
-            sunt reprehenderit fugiat commodo eu occaecat labore velit
-            reprehenderit laboris anim proident.
+          At Gymrats, our mission is to empower individuals on their journey to holistic well-being, fostering a community of health, vitality, and personal growth. We are committed to providing a sanctuary where every step taken, every goal achieved, and every challenge overcome leads to a more enriched and fulfilling life.
           </p>
 
           <Link

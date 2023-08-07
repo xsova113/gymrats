@@ -48,7 +48,7 @@ const Header = () => {
     >
       <LogoLink />
 
-      <nav className="lg:flex items-center hidden">
+      <nav className="lg:flex items-center hidden gap-2">
         <Link
           href={"/"}
           className={cn(

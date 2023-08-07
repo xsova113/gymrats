@@ -10,25 +10,25 @@ const cardsInfo = [
   {
     title: "cardio zone",
     description:
-      "In tempor sunt sunt eiusmod anim Lorem sunt eiusmod eiusmod sint id ea. Aute deserunt exercitation ipsum cillum exercitation.",
+      "Step into our Cardio Oasis, a vibrant and invigorating space dedicated to elevating your cardiovascular health and well-being. Our cardio zone is a haven where you can push your limits.",
     icon: HeartPulse,
   },
   {
     title: "weights zone",
     description:
-      "Ullamco ea sint dolor laborum laboris dolor. Aliqua elit proident dolor mollit duis et esse in duis labore quis in.",
+      "Welcome to weights zone, where the clang of iron and the scent of determination fill the air. This is your sanctuary for building raw strength, sculpting muscle, and unleashing your true potential. ",
     icon: Dumbbell,
   },
   {
     title: "cycling zone",
     description:
-      "Sit aliquip aliqua deserunt enim qui consectetur laboris. Sunt qui ex non est pariatur velit cillum reprehenderit aliquip mollit adipisicing laboris duis dolore.",
+      "Welcome to the Cycling zone, where the thrill of the open road meets the comfort of an indoor environment. Whether you're an avid cyclist or a beginner looking to embark on a new fitness journey.",
     icon: Bike,
   },
   {
     title: "class studio",
     description:
-      "Non eu et mollit aliqua quis consequat et velit sunt laborum in labore. Nisi amet aliquip mollit magna.",
+      "Welcome to Class Studio, the vibrant heart of our community where individuals come together to experience the power of group fitness. In this dynamic and inspiring space, you'll find a diverse range of classes designed to challenge your limits.",
     icon: Users,
   },
 ];

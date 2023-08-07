@@ -10,11 +10,10 @@ const bookAssessment = () => {
           Book a free session
         </h1>
         <div className="flex mt-8 mb-10 w-4/5 text-white/80">
-          Consequat minim nisi fugiat ullamco culpa ullamco deserunt
-          exercitation anim amet officia sunt quis sit. Ad incididunt tempor
-          laboris dolore ad. Do in aliquip nulla aliquip deserunt et amet. Enim
-          dolor ut in occaecat minim officia. Lorem minim sunt esse ullamco ex
-          laboris qui qui duis.
+          Ready to kickstart your fitness journey with expert guidance? Don't
+          miss your chance to claim a complimentary personal training session.
+          Our certified trainers are here to tailor a workout plan just for you,
+          helping you reach your goals faster and more effectively.
         </div>
         <Link
           href={"/contact"}

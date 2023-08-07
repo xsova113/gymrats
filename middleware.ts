@@ -8,7 +8,7 @@ export default authMiddleware({
     "/",
     "/classes",
     "/classes/circuit",
-    "classes/spin",
+    "/classes/spin",
     "/classes/yoga",
     "/services/personaltraining",
     "/services/membership",
