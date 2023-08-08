@@ -38,7 +38,7 @@ const WhatYouGet = () => {
           defaultValue="item-0"
           type="single"
           collapsible
-          className="w-[90%] sm:w-2/3 lg:1/2"
+          className="w-[90%] sm:w-2/3 lg:1/2 max-w-xl"
         >
           {nutrition.map((item, index) => (
             <AccordionItem

@@ -56,6 +56,10 @@ export const navItem = [
     href: "/contact",
   },
   {
+    label: "supplement",
+    href: "/supplement",
+  },
+  {
     label: "about",
     href: "/about",
   },

@@ -70,6 +70,15 @@ const Header = () => {
           Contact
         </Link>
         <Link
+          href={"/supplement"}
+          className={cn(
+            "capitalize hover:bg-stone-900 transition p-2 px-4 rounded-md",
+            "/contact" === pathname && "bg-neutral-800"
+          )}
+        >
+          Supplement
+        </Link>
+        <Link
           href={"/about"}
           className={cn(
             "capitalize hover:bg-stone-900 transition p-2 px-4 rounded-md",
