@@ -25,7 +25,7 @@ export default function RootLayout({
     <ClerkProvider appearance={{variables: {colorPrimary: "black"}}}>
       <html lang="en" className="overflow-x-hidden">
         <ParallaxProvider>
-          <body className={`${ubuntu.className} max-w-screen-2xl dark`}>
+          <body className={`${ubuntu.className} max-w-screen-xl dark`}>
             <Header />
             {children}
             <Footer />

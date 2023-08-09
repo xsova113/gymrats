@@ -10,8 +10,9 @@ import { cn } from "@/lib/utils";
 import LogoLink from "./LogoLink";
 import ClassesDropdown from "./ClassesDropdown";
 import { useRouter } from "next/navigation";
-import AvatarButton from "./AvatarButton";
-import { SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
+import { useCart } from "@/hooks/use-cart";
+import Cart from "./Cart";
 
 const Header = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -90,6 +91,8 @@ const Header = () => {
       </nav>
 
       <div className="flex items-center mr-2 space-x-4 max-lg:ml-auto">
+        <Cart />
+
         <UserButton afterSignOutUrl="/" signInUrl="/" />
 
         <Button

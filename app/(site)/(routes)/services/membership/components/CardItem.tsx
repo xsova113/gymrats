@@ -42,7 +42,7 @@ const CardItem = ({
   const joinMembership = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.post("/api/stripe", {
+      const response = await axios.post("/api/stripe/subscription", {
         price,
         title,
         description,

@@ -1,4 +1,3 @@
-import React from "react";
 import LogoLink from "./LogoLink";
 import { Facebook, Instagram, LucideIcon, Phone } from "lucide-react";
 import Link from "next/link";

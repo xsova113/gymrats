@@ -16,6 +16,7 @@ export interface Product {
   name: string;
   price: string;
   flavor: { name: string };
+  size: { name: string; value: string };
   isFeatured: boolean;
   images: Image[];
 }
