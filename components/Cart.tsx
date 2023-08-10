@@ -67,7 +67,7 @@ const Cart = () => {
     if (searchParams.get("cancelled")) {
       toast({ title: "Something went wrong", variant: "destructive" });
     }
-  }, [searchParams, removeAllItems,toast]);
+  }, [searchParams, removeAllItems, toast]);
 
   return (
     <Sheet>
@@ -109,9 +109,9 @@ const Cart = () => {
                 <div className="flex flex-col gap-2">
                   <span>{items[0].name}</span>
                   <span>{items[0].flavor?.name}</span>
-                  <span>{formatter.format(Number(items[0].price))}</span>
+                  <span>Price: {formatter.format(Number(items[0].price))}</span>
                 </div>
-                <div className="flex items-center gap-4 justify-between bg-neutral-800 rounded-md p-2 ml-auto">
+                <div className="flex items-center self-end gap-4 justify-between bg-neutral-800 rounded-md p-2 ml-auto">
                   <Button
                     size={"icon"}
                     className="h-5 w-5 hover:bg-neutral-700 bg-transparent text-neutral-200"
@@ -145,11 +145,11 @@ const Cart = () => {
             </div>
           </SheetDescription>
         </SheetHeader>
-        <SheetFooter className="mt-20">
+        <SheetFooter className="mt-12">
           <Button
             disabled={items.length === 0}
             onClick={onCheckout}
-            className="w-full font-semibold uppercase"
+            className="w-full font-semibold uppercase bg-red-600 text-white hover:bg-red-600/80"
           >
             Checkout
           </Button>

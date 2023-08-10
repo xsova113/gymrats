@@ -15,6 +15,7 @@ export interface Product {
   category: Category;
   name: string;
   price: string;
+  description: string;
   flavor: { name: string };
   size: { name: string; value: string };
   isFeatured: boolean;

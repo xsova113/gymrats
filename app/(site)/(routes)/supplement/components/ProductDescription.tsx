@@ -52,13 +52,13 @@ const ProductDescription = ({ product }: ProductDescriptionProps) => {
   return (
     <div className="flex flex-col gap-6 max-lg:self-center">
       <h1 className="text-4xl font-bold">{product.name}</h1>
-      <p></p>
-      <div className="flex flex-col gap-2 text-neutral-300">
+      <p className="text-neutral-400">{product.description}</p>
+      <div className="flex flex-col gap-2 text-neutral-100">
         <span>Category: {product.category.name}</span>
         <span>Flavor: {product.flavor.name}</span>
         <span>Amount: {product.size.name}g</span>
       </div>
-      <span className="text-lg text-neutral-100 font-semibold">
+      <span className="text-xl text-neutral-100 font-semibold">
         Price: {formatter.format(Number(product.price))}
       </span>
       <div className="flex flex-col lg:flex-row gap-4 items-center">
