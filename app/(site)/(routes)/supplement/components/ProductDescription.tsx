@@ -6,7 +6,7 @@ import { useCart } from "@/hooks/use-cart";
 import { formatter } from "@/lib/utils";
 import { Product } from "@/type";
 import { Minus, Plus } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ProductDescriptionProps {
   product: Product;
@@ -14,7 +14,7 @@ interface ProductDescriptionProps {
 
 const ProductDescription = ({ product }: ProductDescriptionProps) => {
   const [isMounted, setIsMounted] = useState(false);
-  const { items, addItem, removeItem } = useCart();
+  const { addItem } = useCart();
   const [cartItems, setCartItems] = useState<Product[]>([]);
   const { toast } = useToast();
 

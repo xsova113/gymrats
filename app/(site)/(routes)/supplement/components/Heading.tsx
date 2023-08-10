@@ -22,7 +22,7 @@ const Heading = () => {
         slidesToScroll={1}
         slidesToShow={1}
       >
-        <div className="bg-[url('/images/supplement.png')] bg-cover w-full h-[300px] sm:h-[500px]">
+        <div className="bg-[url('/images/supplement1.png')] bg-cover w-full h-[300px] sm:h-[500px]">
           <div className="flex flex-col gap-y-8 items-center backdrop-brightness-75 justify-center h-full">
             <h1 className="text-white uppercase text-3xl font-semibold">
               Supplements
