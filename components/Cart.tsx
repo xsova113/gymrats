@@ -67,7 +67,7 @@ const Cart = () => {
     if (searchParams.get("cancelled")) {
       toast({ title: "Something went wrong", variant: "destructive" });
     }
-  }, [searchParams, removeAllItems]);
+  }, [searchParams, removeAllItems,toast]);
 
   return (
     <Sheet>
