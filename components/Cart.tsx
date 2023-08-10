@@ -10,19 +10,19 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useCart } from "@/hooks/use-cart";
-import { formatter } from "@/lib/utils";
+import { cn, formatter } from "@/lib/utils";
 import { Minus, Plus, ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { useToast } from "./ui/use-toast";
 
 const Cart = () => {
   const { items, removeAllItems, addItem, removeItem } = useCart();
-  const [groupedItem, setGroupedItem] = useState<any>({});
-  const [totalCost, setTotalCost] = useState(0);
+  const [groupedItems, setGroupedItems] = useState<any>({});
+  const [totalPrice, setTotalPrice] = useState(0);
   const searchParams = useSearchParams();
   const { toast } = useToast();
 
@@ -31,19 +31,19 @@ const Cart = () => {
       const totalPrice = Number(item?.price) + acc;
       return totalPrice;
     }, 0);
-    setTotalCost(total);
+    setTotalPrice(total);
   }, [items]);
 
   const onCheckout = async () => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-        { groupedItem, totalCost }
+        `${process.env.NEXT_PUBLIC_API_URL}/gymratsCheckout`,
+        { groupedItems, totalPrice }
       );
 
       window.location = response.data.url;
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast({ title: error.message, variant: "destructive" });
     }
   };
 
@@ -55,7 +55,7 @@ const Cart = () => {
       return results;
     }, {});
 
-    setGroupedItem(groupedDate);
+    setGroupedItems(groupedDate);
   }, [items]);
 
   useEffect(() => {
@@ -87,12 +87,12 @@ const Cart = () => {
           <SheetDescription className="space-y-8 flex flex-col">
             <Button
               variant={"link"}
-              className="ml-auto"
+              className={cn("ml-auto", items.length === 0 && "hidden")}
               onClick={removeAllItems}
             >
               Remove All
             </Button>
-            {Object.entries(groupedItem).map(([key, items]: any) => (
+            {Object.entries(groupedItems).map(([key, items]: any) => (
               <div key={key} className="flex items-center gap-2">
                 <div className="relative w-1/3 aspect-square">
                   <Image
@@ -132,15 +132,22 @@ const Cart = () => {
             ))}
 
             <div className="text-lg">
-              <span className="text-neutral-100 font-semibold">
-                Total Amount
-              </span>
-              : {formatter.format(totalCost)}
+              {items.length === 0 ? (
+                <span>Cart empty</span>
+              ) : (
+                <div>
+                  <span className="text-neutral-100 font-semibold">
+                    Total Amount
+                  </span>
+                  : {formatter.format(totalPrice)}
+                </div>
+              )}
             </div>
           </SheetDescription>
         </SheetHeader>
         <SheetFooter className="mt-20">
           <Button
+            disabled={items.length === 0}
             onClick={onCheckout}
             className="w-full font-semibold uppercase"
           >
