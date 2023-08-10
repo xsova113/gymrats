@@ -74,7 +74,7 @@ const Header = () => {
           href={"/supplement"}
           className={cn(
             "capitalize hover:bg-stone-900 transition p-2 px-4 rounded-md",
-            "/contact" === pathname && "bg-neutral-800"
+            "/supplement" === pathname && "bg-neutral-800"
           )}
         >
           Supplement
