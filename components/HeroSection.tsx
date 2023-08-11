@@ -42,7 +42,7 @@ const HeroSection = () => {
           className="h-[550px] flex flex-col justify-end"
         >
           <motion.h1
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
             variants={{
               hidden: { opacity: 0, x: -50 },
               visible: { opacity: 1, x: 0 },
@@ -58,7 +58,7 @@ const HeroSection = () => {
             for the better
           </motion.h1>
           <motion.div
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
             variants={{
               hidden: { opacity: 0, x: -50 },
               visible: { opacity: 1, x: 0 },
