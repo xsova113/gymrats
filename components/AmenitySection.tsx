@@ -60,9 +60,18 @@ const AmenitySection = () => {
       </Parallax>
       <Container className="flex justify-center py-20">
         <div className="flex flex-col items-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold capitalize transition-all mb-10 lg:mb-20">
+          <motion.h1
+            initial="hidden"
+            whileInView={"visible"}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -70 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold capitalize mb-10 lg:mb-20"
+          >
             our amenities
-          </h1>
+          </motion.h1>
           <motion.div
             initial={"hidden"}
             whileInView={"visible"}

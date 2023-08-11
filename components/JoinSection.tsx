@@ -28,7 +28,7 @@ const JoinSection = () => {
           embracing a holistic approach to well-being.
         </p>
         <Button
-          onClick={() => router.push("/membership")}
+          onClick={() => router.push("/services/membership")}
           className="w-fit mt-10 px-8 py-6 hover:bg-red-600/90 bg-red-600 text-neutral-100 text-xl font-semibold"
         >
           Start Today
