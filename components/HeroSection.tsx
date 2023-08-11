@@ -37,19 +37,17 @@ const HeroSection = () => {
           whileInView={"visible"}
           variants={{
             hidden: {},
-            visible: { transition: { staggerChildren: 0.5 } },
+            visible: { transition: { staggerChildren: 0.3 } },
           }}
           className="h-[550px] flex flex-col justify-end"
         >
           <motion.h1
-            // initial="hidden"
-            // whileInView={"visible"}
             transition={{ duration: 0.3 }}
             variants={{
               hidden: { opacity: 0, x: -50 },
               visible: { opacity: 1, x: 0 },
             }}
-            className="lg:text-6xl md:text-5xl text-4xl w-2/3 transition-all font-extrabold tracking-wider leading-tight uppercase"
+            className="lg:text-6xl md:text-5xl text-4xl w-2/3 font-extrabold tracking-wider leading-tight uppercase"
           >
             <span className="text-red-600">
               prepare
