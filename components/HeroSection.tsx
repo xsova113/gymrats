@@ -1,8 +1,10 @@
 "use client";
 
 import Container from "@/components/Container";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { type } from "os";
 import { Parallax } from "react-scroll-parallax";
 
 const HeroSection = () => {
@@ -30,8 +32,25 @@ const HeroSection = () => {
       </Parallax>
 
       <Container>
-        <div className="h-[550px] flex flex-col justify-end">
-          <h1 className="lg:text-6xl md:text-5xl text-4xl w-2/3 transition-all font-extrabold tracking-wider leading-tight uppercase">
+        <motion.div
+          initial="hidden"
+          whileInView={"visible"}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.5 } },
+          }}
+          className="h-[550px] flex flex-col justify-end"
+        >
+          <motion.h1
+            // initial="hidden"
+            // whileInView={"visible"}
+            transition={{ duration: 0.3 }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            className="lg:text-6xl md:text-5xl text-4xl w-2/3 transition-all font-extrabold tracking-wider leading-tight uppercase"
+          >
             <span className="text-red-600">
               prepare
               <br /> to change
@@ -39,14 +58,23 @@ const HeroSection = () => {
             &nbsp;
             <br />
             for the better
-          </h1>
-          <Link
-            href={"/services/membership"}
-            className="capitalize bg-white text-muted w-fit mt-10 md:text-xl text-lg px-8 py-3 rounded-lg border-none hover:opacity-90 transition hover:scale-105"
+          </motion.h1>
+          <motion.div
+            transition={{ duration: 0.3 }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            className="mt-10"
           >
-            try for free today
-          </Link>
-        </div>
+            <Link
+              href={"/services/membership"}
+              className="capitalize bg-white text-muted w-fit md:text-xl text-lg px-8 py-3 rounded-lg border-none hover:opacity-90 transition hover:scale-105"
+            >
+              try for free today
+            </Link>
+          </motion.div>
+        </motion.div>
       </Container>
     </section>
   );
