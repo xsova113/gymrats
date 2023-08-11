@@ -5,6 +5,7 @@ import Container from "./Container";
 import { Parallax } from "react-scroll-parallax";
 import AmenityCard from "./AmenityCard";
 import { Bike, Dumbbell, HeartPulse, RollerCoaster, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
 const cardsInfo = [
   {
@@ -33,6 +34,13 @@ const cardsInfo = [
   },
 ];
 
+const container = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.3 },
+  },
+};
+
 const AmenitySection = () => {
   return (
     <section className="max-sm:bg-neutral-900">
@@ -55,7 +63,12 @@ const AmenitySection = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold capitalize transition-all mb-10 lg:mb-20">
             our amenities
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+          <motion.div
+            initial={"hidden"}
+            whileInView={"visible"}
+            variants={container}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8"
+          >
             {cardsInfo.map((item) => (
               <AmenityCard
                 title={item.title}
@@ -64,7 +77,7 @@ const AmenitySection = () => {
                 icon={item.icon}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>
