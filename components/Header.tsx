@@ -13,32 +13,13 @@ import { useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import { useCart } from "@/hooks/use-cart";
 import Cart from "./Cart";
+import { useScrollTrigger } from "@/hooks/use-scroll-trigger";
 
 const Header = () => {
   const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
-  const [show, setShow] = useState(true);
   const router = useRouter();
-
-  useEffect(() => {
-    setIsMounted(true);
-    let previousScrollPosition = 0;
-    let currentScrollPosition = 0;
-
-    window.addEventListener("scroll", () => {
-      currentScrollPosition = window.scrollY;
-
-      if (previousScrollPosition - currentScrollPosition < 0) {
-        setShow(false);
-      } else if (previousScrollPosition - currentScrollPosition > 0) {
-        setShow(true);
-      }
-
-      previousScrollPosition = currentScrollPosition;
-    });
-  }, []);
-
-  if (!isMounted) return null;
+  const show = useScrollTrigger()
 
   return (
     <header

@@ -18,6 +18,7 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { useToast } from "./ui/use-toast";
+import { Product } from "@/type";
 
 const Cart = () => {
   const { items, removeAllItems, addItem, removeItem } = useCart();
@@ -49,13 +50,13 @@ const Cart = () => {
 
   // Group items by ID
   useMemo(() => {
-    const groupedDate = items.reduce((results: any, item): any => {
+    const groupedData = items.reduce((results: any, item): Product => {
       (results[item.id] = results[item.id] || []).push(item);
 
       return results;
     }, {});
 
-    setGroupedItems(groupedDate);
+    setGroupedItems(groupedData);
   }, [items]);
 
   useEffect(() => {
