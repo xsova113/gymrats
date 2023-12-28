@@ -11,12 +11,10 @@ import LogoLink from "./LogoLink";
 import ClassesDropdown from "./ClassesDropdown";
 import { useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
-import { useCart } from "@/hooks/use-cart";
 import Cart from "./Cart";
 import { useScrollTrigger } from "@/hooks/use-scroll-trigger";
 
 const Header = () => {
-  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const show = useScrollTrigger()

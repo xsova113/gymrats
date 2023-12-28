@@ -50,11 +50,14 @@ const Cart = () => {
 
   // Group items by ID
   useMemo(() => {
-    const groupedData = items.reduce((results: any, item): Product => {
-      (results[item.id] = results[item.id] || []).push(item);
+    const groupedData = items.reduce(
+      (results: Record<string, Product[]>, item) => {
+        (results[item.id] = results[item.id] || []).push(item);
 
-      return results;
-    }, {});
+        return results;
+      },
+      {}
+    );
 
     setGroupedItems(groupedData);
   }, [items]);
