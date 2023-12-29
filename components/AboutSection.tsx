@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   return (
-    <section>
+    <section className="mx-auto">
       <Container className="flex mt-20 bg-red-600 py-24">
         <motion.div
           initial="hidden"

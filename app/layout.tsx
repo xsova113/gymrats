@@ -22,10 +22,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider appearance={{variables: {colorPrimary: "black"}}}>
+    <ClerkProvider appearance={{ variables: { colorPrimary: "black" } }}>
       <html lang="en" className="overflow-x-hidden">
         <ParallaxProvider>
-          <body className={`${ubuntu.className} max-w-screen-xl dark`}>
+          <body className={`${ubuntu.className} dark`}>
             <Header />
             {children}
             <Footer />
