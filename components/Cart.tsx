@@ -22,7 +22,9 @@ import { Product } from "@/type";
 
 const Cart = () => {
   const { items, removeAllItems, addItem, removeItem } = useCart();
-  const [groupedItems, setGroupedItems] = useState<any>({});
+  const [groupedItems, setGroupedItems] = useState<Record<string, Product[]>>(
+    {}
+  );
   const [totalPrice, setTotalPrice] = useState(0);
   const searchParams = useSearchParams();
   const { toast } = useToast();
@@ -96,44 +98,48 @@ const Cart = () => {
             >
               Remove All
             </Button>
-            {Object.entries(groupedItems).map(([key, items]: any) => (
-              <div key={key} className="flex items-center gap-2">
-                <div className="relative w-1/3 aspect-square">
-                  <Image
-                    src={
-                      items[0].images
-                        ? items[0].images[0].url
-                        : "/images/gymgirl2.png"
-                    }
-                    alt={items[0].name}
-                    fill
-                    className="object-contain rounded-md"
-                  />
+            {Object.entries(groupedItems).map(
+              ([key, items]: [string, Product[]]) => (
+                <div key={key} className="flex items-center gap-2">
+                  <div className="relative w-1/3 aspect-square">
+                    <Image
+                      src={
+                        items[0].images
+                          ? items[0].images[0].url
+                          : "/images/gymgirl2.png"
+                      }
+                      alt={items[0].name}
+                      fill
+                      className="object-contain rounded-md"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <span>{items[0].name}</span>
+                    <span>{items[0].flavor?.name}</span>
+                    <span>
+                      Price: {formatter.format(Number(items[0].price))}
+                    </span>
+                  </div>
+                  <div className="flex items-center self-end gap-4 justify-between bg-neutral-800 rounded-md p-2 ml-auto">
+                    <Button
+                      size={"icon"}
+                      className="h-5 w-5 hover:bg-neutral-700 bg-transparent text-neutral-200"
+                      onClick={() => removeItem(items[0].id)}
+                    >
+                      <Minus />
+                    </Button>
+                    <span>{items.length}</span>
+                    <Button
+                      size={"icon"}
+                      className="h-5 w-5 hover:bg-neutral-700 bg-transparent text-neutral-200"
+                      onClick={() => addItem([items[0]])}
+                    >
+                      <Plus />
+                    </Button>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <span>{items[0].name}</span>
-                  <span>{items[0].flavor?.name}</span>
-                  <span>Price: {formatter.format(Number(items[0].price))}</span>
-                </div>
-                <div className="flex items-center self-end gap-4 justify-between bg-neutral-800 rounded-md p-2 ml-auto">
-                  <Button
-                    size={"icon"}
-                    className="h-5 w-5 hover:bg-neutral-700 bg-transparent text-neutral-200"
-                    onClick={() => removeItem(items[0].id)}
-                  >
-                    <Minus />
-                  </Button>
-                  <span>{items.length}</span>
-                  <Button
-                    size={"icon"}
-                    className="h-5 w-5 hover:bg-neutral-700 bg-transparent text-neutral-200"
-                    onClick={() => addItem([items[0]])}
-                  >
-                    <Plus />
-                  </Button>
-                </div>
-              </div>
-            ))}
+              )
+            )}
 
             <div className="text-lg">
               {items.length === 0 ? (
